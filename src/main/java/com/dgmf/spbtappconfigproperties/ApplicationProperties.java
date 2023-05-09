@@ -6,4 +6,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 // seront liées aux variables de la classe ci-dessous
 @ConfigurationProperties(prefix = "app")
 public class ApplicationProperties {
+    private String version;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
 }
