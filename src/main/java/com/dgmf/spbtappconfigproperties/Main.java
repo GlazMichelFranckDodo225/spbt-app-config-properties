@@ -1,5 +1,6 @@
 package com.dgmf.spbtappconfigproperties;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -8,7 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-@EnableConfigurationProperties(ApplicationProperties.class)
+@EnableConfigurationProperties({ApplicationProperties.class})
 public class Main {
 
 	public static void main(String[] args) {
@@ -27,8 +28,12 @@ class AppInitializer implements CommandLineRunner {
 	@Value("${app.version}")
 	private String appVersion;
 
+	@Autowired
+	private ApplicationProperties properties;
+
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Application version : " + appVersion);
+		System.out.println("Application version : " + properties.getVersion());
 	}
 }
