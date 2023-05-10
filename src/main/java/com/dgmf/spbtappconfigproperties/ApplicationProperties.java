@@ -1,10 +1,14 @@
 package com.dgmf.spbtappconfigproperties;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.validation.annotation.Validated;
 
 // Toutes les propriétés commençant par le préfixe "app"
 // seront liées aux variables de la classe ci-dessous
 @ConfigurationProperties(prefix = "app")
+@Validated
 public class ApplicationProperties {
     private String version;
     // private FtpProperties ftp = new FtpProperties(); ==> si on n'utilise
@@ -36,9 +40,13 @@ public class ApplicationProperties {
     }
 
     public static class FtpProperties {
+        @NotEmpty
         private String host;
+        @Positive
         private String port;
+        @NotEmpty
         private String username;
+        @NotEmpty
         private String password;
 
         public String getHost() {
