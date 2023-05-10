@@ -35,5 +35,6 @@ class AppInitializer implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("Application version : " + appVersion);
 		System.out.println("Application version : " + properties.getVersion());
+		System.out.println("All Application properties : " + properties);
 	}
 }
