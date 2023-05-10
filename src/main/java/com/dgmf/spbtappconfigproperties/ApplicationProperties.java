@@ -43,7 +43,7 @@ public class ApplicationProperties {
         @NotEmpty
         private String host;
         @Positive
-        private String port;
+        private int port;
         @NotEmpty
         private String username;
         @NotEmpty
@@ -57,11 +57,11 @@ public class ApplicationProperties {
             this.host = host;
         }
 
-        public String getPort() {
+        public int getPort() {
             return port;
         }
 
-        public void setPort(String port) {
+        public void setPort(int port) {
             this.port = port;
         }
 
